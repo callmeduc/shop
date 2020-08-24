@@ -1,0 +1,140 @@
+﻿{% extends "home/base.html" %}
+{% block title %}INHDI{% endblock %}
+
+{% block content %}
+    {% load static %}
+
+    <section class="ftco-section ftco-cart">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-12 ftco-animate">
+                    <div class="cart-list">
+                        <table class="table">
+                            <thead class="thead-primary">
+                            <tr class="text-center">
+                                <th>&nbsp;</th>
+                                <th>&nbsp;</th>
+                                <th>Sản Phẩm</th>
+                                <th>Giá</th>
+                                <th>Số lượng</th>
+                                <th>Thành Tiền</th>
+                            </tr>
+                            </thead>
+                            <tbody>
+                            {% for item in items %}
+                                {% load static %}
+                                <tr class="text-center">
+                                    <td class="product-remove update-cart" data-product="{{ item.product.id }}"
+                                        data-action="trash"><a href="#"><span class="ion-ios-close"></span></a></td>
+
+
+                                    <td class="product-name">
+                                        <h3>{{ item.product.name }}</h3>
+                                    </td>
+
+                                    <td class="price">{{ item.product.price }}VNĐ</td>
+
+                                    <td class="quantity">
+                                        <div class="input-group mb-3">
+                                            <input type="submit" value="+" class="chg-quantity update-cart"
+                                                   data-action="add" data-product="{{ item.product.id }}">
+                                            <input type="text" name="quantity"
+                                                   class="quantity form-control input-number"
+                                                   value="{{ item.quantity }}" min="1" max="100">
+                                            <input type="submit" value="-" class="chg-quantity update-cart"
+                                                   data-product="{{ item.product.id }}" data-action="remove">
+                                        </div>
+                                    </td>
+
+                                    <td class="total">{{ item.get_total }}VNĐ</td>
+                                </tr><!-- END TR-->
+                            {% endfor %}
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        <div class="container">
+            <div class="row justify-content-end">
+                <div class="col-lg-4 mt-5  cart-wrap ftco-animate">
+                    <div class="cart-total mb-3">
+                        <h3>Phiếu Giảm Giá</h3>
+                        <p>Nhập mã phiếu giảm giá của bạn nếu bạn có</p>
+                        <form action="#" class="info">
+                            <div class="form-group">
+                                <label for="">Nhập Mã</label>
+                                <input type="text" class="form-control text-left px-3" placeholder="">
+                            </div>
+                        </form>
+                    </div>
+                    <p><a href="checkout.html" class="btn btn-primary py-3 px-4">Dùng Mã Này</a></p>
+                </div>
+                <div class="col-lg-4 mt-5 cart-wrap ftco-animate">
+                    <div class="cart-total mb-3">
+                        <h3>Tổng Sản Phẩm</h3>
+                        <p class="d-flex">
+                            <span>Item</span>
+                            <span>{{ order.get_cart_items }}</span>
+                        </p>
+                        <p class="d-flex">
+                            <span>Phí Vận Chuyễn</span>
+                            <span>0VNĐ</span>
+                        </p>
+                        <p class="d-flex">
+                            <span>Giảm Giá</span>
+                            <span>0VNĐ</span>
+                        </p>
+                        <hr>
+                        <p class="d-flex total-price">
+                            <span>Tổng Tiền</span>
+                            <span>{{ order.get_cart_total | floatformat:2 }}VNĐ</span>
+                        </p>
+                    </div>
+                    <p><a href="{% url 'checkout' %}" class="btn btn-primary py-3 px-4">Kiểm Tra Đơn Hàng</a></p>
+                </div>
+            </div>
+        </div>
+
+        </div>
+    </section>
+
+
+
+
+    <script>
+        $(document).ready(function () {
+
+            var quantitiy = 0;
+            $('.quantity-right-plus').click(function (e) {
+
+                // Stop acting like a button
+                e.preventDefault();
+                // Get the field name
+                var quantity = parseInt($('#quantity').val());
+
+                // If is not undefined
+
+                $('#quantity').val(quantity + 1);
+
+
+                // Increment
+
+            });
+
+            $('.quantity-left-minus').click(function (e) {
+                // Stop acting like a button
+                e.preventDefault();
+                // Get the field name
+                var quantity = parseInt($('#quantity').val());
+
+                // If is not undefined
+
+                // Increment
+                if (quantity > 0) {
+                    $('#quantity').val(quantity - 1);
+                }
+            });
+
+        });
+    </script>
+{% endblock %}

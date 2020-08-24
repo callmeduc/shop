@@ -1,0 +1,322 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>{% block title %}INHDI{% endblock %}</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    {% load static %}
+    <link href="https://fonts.googleapis.com/css?family=Poppins:200,300,400,500,600,700,800&display=swap"
+          rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Lora:400,400i,700,700i&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Amatic+SC:400,700&display=swap" rel="stylesheet">
+
+    <link rel="stylesheet" href="{% static 'home/css/open-iconic-bootstrap.min.css' %}">
+    <link rel="stylesheet" href="{% static 'home/css/animate.css' %}">
+
+    <link rel="stylesheet" href="{% static 'home/css/owl.carousel.min.css' %}">
+    <link rel="stylesheet" href="{% static 'home/css/owl.theme.default.min.css' %}">
+    <link rel="stylesheet" href="{% static 'home/css/magnific-popup.css' %}">
+
+    <link rel="stylesheet" href="{% static 'home/css/aos.css' %}">
+
+    <link rel="stylesheet" href="{% static 'home/css/ionicons.min.css' %}">
+
+    <link rel="stylesheet" href="{% static 'home/css/bootstrap-datepicker.css' %}">
+    <link rel="stylesheet" href="{% static 'home/css/jquery.timepicker.css' %}">
+
+
+    <link rel="stylesheet" href="{% static 'home/css/flaticon.css' %}">
+    <link rel="stylesheet" href="{% static 'home/css/icomoon.css' %}">
+    <link rel="stylesheet" href="{% static 'home/css/style.css' %}">
+</head>
+<body class="goto-here">
+<div class="py-1 bg-primary">
+    <div class="container">
+        <div class="row no-gutters d-flex align-items-start align-items-center px-md-0">
+            <div class="col-lg-12 d-block">
+                <div class="row d-flex">
+                    <div class="col-md pr-4 d-flex topper align-items-center">
+                        <div class="icon mr-2 d-flex justify-content-center align-items-center"><span
+                                class="icon-phone2"></span></div>
+                        <span class="text">+ 84 985 498 734</span>
+                    </div>
+                    <div class="col-md pr-4 d-flex topper align-items-center">
+                        <div class="icon mr-2 d-flex justify-content-center align-items-center"><span
+                                class="icon-paper-plane"></span></div>
+                        <span class="text">dang12.10.1999@email.com</span>
+                    </div>
+                    <div class="col-md-5 pr-4 d-flex topper align-items-center text-lg-right">
+                        <span class="text">3-5 Business days delivery &amp; Free Returns</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<nav class="navbar navbar-expand-lg navbar-dark ftco_navbar bg-dark ftco-navbar-light" id="ftco-navbar">
+    <div class="container">
+        <a class="navbar-brand" href="{% url 'index' %}">FoodsNHD</a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#ftco-nav"
+                aria-controls="ftco-nav" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="oi oi-menu"></span> Menu
+        </button>
+
+        <div class="collapse navbar-collapse" id="ftco-nav">
+            <ul class="navbar-nav ml-auto">
+                <li class="nav-item active"><a href="{% url 'index' %}" class="nav-link">Home</a></li>
+                <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle" href="" id="dropdown04" data-toggle="dropdown"
+                       aria-haspopup="true" aria-expanded="false">Danh Mục</a>
+                    <div class="dropdown-menu" aria-labelledby="dropdown04">
+                        {% for item in danhmuc %}
+                        <a class="dropdown-item" href="/index/danhmuc/{{ item.id }}">{{ item.Loai_sp }}</a>
+                        {% endfor %}
+                    </div>
+                </li>
+                <li class="nav-item"><a href="#" class="nav-link">About</a></li>
+                <li class="nav-item"><a href="#" class="nav-link">Blog</a></li>
+                <li class="nav-item"><a href="#" class="nav-link">Contact</a></li>
+                <li class="nav-item cta cta-colored"><a href="{% url 'cart' %}" class="nav-link"><span
+                        class="icon-shopping_cart"></span>[{{ cart_items }}]</a></li>
+
+            </ul>
+        </div>
+    </div>
+</nav>
+<!-- END nav -->
+
+<section id="home-section" class="hero">
+    <div class="home-slider owl-carousel">
+        <div class="slider-item" style="background-image: url({% static 'home/images/bg_1.jpg' %});">
+            <div class="overlay"></div>
+            <div class="container">
+                <div class="row slider-text justify-content-center align-items-center" data-scrollax-parent="true">
+
+                    <div class="col-md-12 ftco-animate text-center">
+                        <h1 class="mb-2">We serve Fresh Vegestables &amp; Fruits</h1>
+                        <h2 class="subheading mb-4">We deliver organic vegetables &amp; fruits</h2>
+                        <p><a href="#" class="btn btn-primary">View Details</a></p>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+
+        <div class="slider-item" style="background-image: url({% static 'home/images/bg_2.jpg' %});">
+            <div class="overlay"></div>
+            <div class="container">
+                <div class="row slider-text justify-content-center align-items-center" data-scrollax-parent="true">
+
+                    <div class="col-sm-12 ftco-animate text-center">
+                        <h1 class="mb-2">100% Fresh &amp; Organic Foods</h1>
+                        <h2 class="subheading mb-4">We deliver organic vegetables &amp; fruits</h2>
+                        <p><a href="#" class="btn btn-primary">View Details</a></p>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+{% block content %}{% endblock %}
+
+
+<section class="ftco-section ftco-no-pt ftco-no-pb py-5 bg-light">
+    <div class="container py-4">
+        <div class="row d-flex justify-content-center py-5">
+            <div class="col-md-6">
+                <h2 style="font-size: 22px;" class="mb-0">Subcribe to our Newsletter</h2>
+                <span>Get e-mail updates about our latest shops and special offers</span>
+            </div>
+            <div class="col-md-6 d-flex align-items-center">
+                <form action="#" class="subscribe-form">
+                    <div class="form-group d-flex">
+                        <input type="text" class="form-control" placeholder="Enter email address">
+                        <input type="submit" value="Subscribe" class="submit px-3">
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</section>
+<div class="container mr-5">
+    <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d931.2952317286458!2d105.78871713711041!3d20.985383400976872!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3135acc95b0592bf%3A0xedae9643f4606d8d!2zODIgTEs2QiwgUC4gTeG7mSBMYW8sIEjDoCDEkMO0bmcsIEjDoCBO4buZaSwgVmnhu4d0IE5hbQ!5e0!3m2!1svi!2s!4v1595169392206!5m2!1svi!2s"
+            width="600" height="450" frameborder="0" style="border:0;" allowfullscreen="" aria-hidden="false"
+            tabindex="0"></iframe>
+</div>
+<footer class="ftco-footer ftco-section">
+
+    <div class="container">
+        <div class="row">
+            <div class="mouse">
+                <a href="#" class="mouse-icon">
+                    <div class="mouse-wheel"><span class="ion-ios-arrow-up"></span></div>
+                </a>
+            </div>
+        </div>
+        <div class="row mb-5">
+            <div class="col-md">
+                <div class="ftco-footer-widget mb-4">
+                    <h2 class="ftco-heading-2">FOODSNHD&nbsp;</h2>
+                    <p>Far far away, behind the word mountains, far from the countries Vokalia and Consonantia.</p>
+                    <ul class="ftco-footer-social list-unstyled float-md-left float-lft mt-5">
+                        <li class="ftco-animate"><a href="#"><span class="icon-twitter"></span></a></li>
+                        <li class="ftco-animate"><a href="#"><span class="icon-facebook"></span></a></li>
+                        <li class="ftco-animate"><a href="#"><span class="icon-instagram"></span></a></li>
+                    </ul>
+
+                </div>
+            </div>
+            <div class="col-md">
+                <div class="ftco-footer-widget mb-4 ml-md-5">
+                    <h2 class="ftco-heading-2">Menu</h2>
+                    <ul class="list-unstyled">
+                        <li><a href="{% url 'index' %}" class="py-2 d-block">Shop</a></li>
+                        <li><a href="#" class="py-2 d-block">About</a></li>
+                        <li><a href="#" class="py-2 d-block">Journal</a></li>
+                        <li><a href="#" class="py-2 d-block">Contact Us</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="ftco-footer-widget mb-4">
+                    <h2 class="ftco-heading-2">Help</h2>
+                    <div class="d-flex">
+                        <ul class="list-unstyled mr-l-5 pr-l-3 mr-4">
+                            <li><a href="#" class="py-2 d-block">Shipping Information</a></li>
+                            <li><a href="#" class="py-2 d-block">Returns &amp; Exchange</a></li>
+                            <li><a href="#" class="py-2 d-block">Terms &amp; Conditions</a></li>
+                            <li><a href="#" class="py-2 d-block">Privacy Policy</a></li>
+                        </ul>
+                        <ul class="list-unstyled">
+                            <li><a href="#" class="py-2 d-block">FAQs</a></li>
+                            <li><a href="#" class="py-2 d-block">Contact</a></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md">
+                <div class="ftco-footer-widget mb-4">
+                    <h2 class="ftco-heading-2">Have a Questions?</h2>
+                    <div class="block-23 mb-3">
+                        <ul>
+                            <li><span class="icon icon-map-marker"></span><span class="text">203 Fake St. Mountain View, San Francisco, California, USA</span>
+                            </li>
+                            <li><a href="#"><span class="icon icon-phone"></span><span
+                                    class="text">+2 392 3929 210</span></a></li>
+                            <li><a href="#"><span class="icon icon-envelope"></span><span class="text">info@yourdomain.com</span></a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</footer>
+
+
+<!-- loader -->
+<div id="ftco-loader" class="show fullscreen">
+    <svg class="circular" width="48px" height="48px">
+        <circle class="path-bg" cx="24" cy="24" r="22" fill="none" stroke-width="4" stroke="#eeeeee"/>
+        <circle class="path" cx="24" cy="24" r="22" fill="none" stroke-width="4" stroke-miterlimit="10"
+                stroke="#F96D00"/>
+    </svg>
+</div>
+
+<style>
+    .fb-livechat, .fb-widget{display: none}.ctrlq.fb-button, .ctrlq.fb-close{position: fixed; right: 24px; cursor: pointer}.ctrlq.fb-button{z-index: 999; background: url(data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiA/PjwhRE9DVFlQRSBzdmcgIFBVQkxJQyAnLS8vVzNDLy9EVEQgU1ZHIDEuMS8vRU4nICAnaHR0cDovL3d3dy53My5vcmcvR3JhcGhpY3MvU1ZHLzEuMS9EVEQvc3ZnMTEuZHRkJz48c3ZnIGVuYWJsZS1iYWNrZ3JvdW5kPSJuZXcgMCAwIDEyOCAxMjgiIGhlaWdodD0iMTI4cHgiIGlkPSJMYXllcl8xIiB2ZXJzaW9uPSIxLjEiIHZpZXdCb3g9IjAgMCAxMjggMTI4IiB3aWR0aD0iMTI4cHgiIHhtbDpzcGFjZT0icHJlc2VydmUiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyIgeG1sbnM6eGxpbms9Imh0dHA6Ly93d3cudzMub3JnLzE5OTkveGxpbmsiPjxnPjxyZWN0IGZpbGw9IiMwMDg0RkYiIGhlaWdodD0iMTI4IiB3aWR0aD0iMTI4Ii8+PC9nPjxwYXRoIGQ9Ik02NCwxNy41MzFjLTI1LjQwNSwwLTQ2LDE5LjI1OS00Niw0My4wMTVjMCwxMy41MTUsNi42NjUsMjUuNTc0LDE3LjA4OSwzMy40NnYxNi40NjIgIGwxNS42OTgtOC43MDdjNC4xODYsMS4xNzEsOC42MjEsMS44LDEzLjIxMywxLjhjMjUuNDA1LDAsNDYtMTkuMjU4LDQ2LTQzLjAxNUMxMTAsMzYuNzksODkuNDA1LDE3LjUzMSw2NCwxNy41MzF6IE02OC44NDUsNzUuMjE0ICBMNTYuOTQ3LDYyLjg1NUwzNC4wMzUsNzUuNTI0bDI1LjEyLTI2LjY1N2wxMS44OTgsMTIuMzU5bDIyLjkxLTEyLjY3TDY4Ljg0NSw3NS4yMTR6IiBmaWxsPSIjRkZGRkZGIiBpZD0iQnViYmxlX1NoYXBlIi8+PC9zdmc+) center no-repeat #0084ff; width: 60px; height: 60px; text-align: center; bottom: 40px; border: 0; outline: 0; border-radius: 60px; -webkit-border-radius: 60px; -moz-border-radius: 60px; -ms-border-radius: 60px; -o-border-radius: 60px; box-shadow: 0 1px 6px rgba(0, 0, 0, .06), 0 2px 32px rgba(0, 0, 0, .16); -webkit-transition: box-shadow .2s ease; background-size: 80%; transition: all .2s ease-in-out}.ctrlq.fb-button:focus, .ctrlq.fb-button:hover{transform: scale(1.1); box-shadow: 0 2px 8px rgba(0, 0, 0, .09), 0 4px 40px rgba(0, 0, 0, .24)}.fb-widget{background: #fff; z-index: 1000; position: fixed; width: 360px; height: 435px; overflow: hidden; opacity: 0; bottom: 0; right: 24px; border-radius: 6px; -o-border-radius: 6px; -webkit-border-radius: 6px; box-shadow: 0 5px 40px rgba(0, 0, 0, .16); -webkit-box-shadow: 0 5px 40px rgba(0, 0, 0, .16); -moz-box-shadow: 0 5px 40px rgba(0, 0, 0, .16); -o-box-shadow: 0 5px 40px rgba(0, 0, 0, .16)}.fb-credit{text-align: center; margin-top: 8px}.fb-credit a{transition: none; color: #bec2c9; font-family: Helvetica, Arial, sans-serif; font-size: 12px; text-decoration: none; border: 0; font-weight: 400}.ctrlq.fb-overlay{z-index: 0; position: fixed; height: 100vh; width: 100vw; -webkit-transition: opacity .4s, visibility .4s; transition: opacity .4s, visibility .4s; top: 0; left: 0; background: rgba(0, 0, 0, .05); display: none}.ctrlq.fb-close{z-index: 4; padding: 0 6px; background: #365899; font-weight: 700; font-size: 11px; color: #fff; margin: 8px; border-radius: 3px}.ctrlq.fb-close::after{content: "X"; font-family: sans-serif}.bubble{width: 20px; height: 20px; background: #c00; color: #fff; position: absolute; z-index: 999999999; text-align: center; vertical-align: middle; top: -2px; left: -5px; border-radius: 50%;}.bubble-msg{width: 120px; left: -140px; top: 5px; position: relative; background: rgba(59, 89, 152, .8); color: #fff; padding: 5px 8px; border-radius: 8px; text-align: center; font-size: 13px;}
+</style>
+<div class="fb-livechat">
+    <div class="ctrlq fb-overlay"></div>
+    <div class="fb-widget">
+        <div class="ctrlq fb-close"></div>
+        <div class="fb-page" data-href="https://www.facebook.com/lgamenotel" data-tabs="messages" data-width="360"
+             data-height="400" data-small-header="true" data-hide-cover="true" data-show-facepile="false"></div>
+        <div id="fb-root"></div>
+    </div>
+    <a href="https://m.me/lgamenotel" title="Gửi tin nhắn cho chúng tôi qua Facebook" class="ctrlq fb-button">
+        <div class="bubble">1</div>
+        <div class="bubble-msg">Bạn cần hỗ trợ?</div>
+    </a></div>
+<script src="https://connect.facebook.net/en_US/sdk.js#xfbml=1&version=v2.9"></script>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
+<script>
+    jQuery(document).ready(function($){function detectmob(){if( navigator.userAgent.match(/Android/i) || navigator.userAgent.match(/webOS/i) || navigator.userAgent.match(/iPhone/i) || navigator.userAgent.match(/iPad/i) || navigator.userAgent.match(/iPod/i) || navigator.userAgent.match(/BlackBerry/i) || navigator.userAgent.match(/Windows Phone/i) ){return true;}else{return false;}}var t={delay: 125, overlay: $(".fb-overlay"), widget: $(".fb-widget"), button: $(".fb-button")}; setTimeout(function(){$("div.fb-livechat").fadeIn()}, 8 * t.delay); if(!detectmob()){$(".ctrlq").on("click", function(e){e.preventDefault(), t.overlay.is(":visible") ? (t.overlay.fadeOut(t.delay), t.widget.stop().animate({bottom: 0, opacity: 0}, 2 * t.delay, function(){$(this).hide("slow"), t.button.show()})) : t.button.fadeOut("medium", function(){t.widget.stop().show().animate({bottom: "30px", opacity: 1}, 2 * t.delay), t.overlay.fadeIn(t.delay)})})}});
+</script>
+
+{% load static %}
+<script src="{% static 'home/js/jquery.min.js' %}"></script>
+<script src="{% static 'home/js/jquery-migrate-3.0.1.min.js' %}"></script>
+<script src="{% static 'home/js/popper.min.js' %}"></script>
+<script src="{% static 'home/js/bootstrap.min.js' %}"></script>
+<script src="{% static 'home/js/jquery.easing.1.3.js' %}"></script>
+<script src="{% static 'home/js/jquery.waypoints.min.js' %}"></script>
+<script src="{% static 'home/js/jquery.stellar.min.js' %}"></script>
+<script src="{% static 'home/js/owl.carousel.min.js' %}"></script>
+<script src="{% static 'home/js/jquery.magnific-popup.min.js' %}"></script>
+<script src="{% static 'home/js/aos.js' %}"></script>
+<script src="{% static 'home/js/jquery.animateNumber.min.js' %}"></script>
+<script src="{% static 'home/js/bootstrap-datepicker.js' %}"></script>
+<script src="{% static 'home/js/scrollax.min.js' %}"></script>
+<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBVWaKrjvy3MaE7SQ74_uJiULgl1JY0H2s&sensor=false"></script>
+<script src="{% static 'home/js/google-map.js' %}"></script>
+<script src="{% static 'home/js/main.js' %}"></script>
+<script src="{% static 'home/js/cart.js' %}"></script>
+<script type="text/javascript">
+    var user = '{{request.user}}'
+
+    function getToken(name) {
+        var cookieValue = null;
+        if (document.cookie && document.cookie !== '') {
+            var cookies = document.cookie.split(';');
+            for (var i = 0; i < cookies.length; i++) {
+                var cookie = cookies[i].trim();
+                // Does this cookie string begin with the name we want?
+                if (cookie.substring(0, name.length + 1) === (name + '=')) {
+                    cookieValue = decodeURIComponent(cookie.substring(name.length + 1));
+                    break;
+                }
+            }
+        }
+        return cookieValue;
+    }
+
+    function getCookie(name) {
+        // Tách chuỗi cookie và nhận tất cả các cặp tên = giá trị riêng lẻ trong một mảng
+        var cookieArr = document.cookie.split(";");
+
+        // Lặp các phần tử trong mảng cookie
+        for (var i = 0; i < cookieArr.length; i++) {
+
+            // lấy các phần tử trong mảng, tách nhau với dấu =
+            var cookiePair = cookieArr[i].split("=");
+
+            /* Remove whitespace at the beginning of the cookie name
+            and compare it with the given string */
+            if (name == cookiePair[0].trim()) {
+                // decode giải mã cookie value và return
+                return decodeURIComponent(cookiePair[1]);
+            }
+        }
+        // return null if not found
+        return null
+    }
+
+    var cart = JSON.parse(getCookie('cart'))
+    console.log("Cart: ", cart)
+    if (cart == undefined) {
+        cart = {}
+        console.log('Cart was update')
+        document.cookie = 'cart=' + JSON.stringify(cart) + ";domain=;path=/"
+    }
+    console.log("cart =", cart)
+
+    var csrftoken = getToken('csrftoken');
+    console.log("CSRF: ", csrftoken)
+
+</script>
+
+</body>
+</html>

@@ -1,0 +1,70 @@
+﻿
+{% extends "home/base.html" %}
+{% block title %}INHDI{% endblock %}
+
+{% block content %}
+{% load static %}
+
+    <section class="ftco-section">
+    	<div class="container">
+    		<div class="row justify-content-center">
+    			<div class="col-md-10 mb-5 text-center">
+    				<ul class="product-category">
+                        {%for item in danhmuc %}
+    					<li><a href="/index/danhmuc/{{item.id}}" class="active">{{item.Loai_sp}}</a></li>
+                        {%endfor%}
+    				</ul>
+    			</div>
+    		</div>
+    		<div class="row">
+
+                {%for item in f %}
+    			<div class="col-md-6 col-lg-3 ftco-animate">
+    				<div class="product">
+    					<a href="/index/chitiet/{{item.id}}" class="img-prod"><img class="img-fluid" src="{{item.Anh.url}}" alt="Colorlib Template">
+    						<span class="status">{{item.Sale}}</span>
+    						<div class="overlay"></div>
+    					</a>
+    					<div class="text py-3 pb-4 px-3 text-center">
+    						<h3><a href="#">{{item.Ten_sp}}</a></h3>
+    						<div class="d-flex">
+    							<div class="pricing">
+		    						<p class="price"><span class="mr-2 price-dc">{{item.Gia_ban}}đ</span><span class="price-sale">{{item.Gia_sale}}đ</span></p>
+		    					</div>
+	    					</div>
+	    					 <div class="bottom-area d-flex px-3">
+                                    <div class="m-auto d-flex">
+                                        <a data-product="{{ item.id }}" data-action="add"
+                                           class="add-to-cart d-flex justify-content-center align-items-center text-center update-cart">
+                                            <span><i class="ion-ios-menu"></i></span>
+                                        </a>
+                                        <a href="#"
+                                           class="buy-now d-flex justify-content-center align-items-center mx-1">
+                                            <span><i class="ion-ios-cart"></i></span>
+                                        </a>
+                                        <a href="#" class="heart d-flex justify-content-center align-items-center ">
+                                            <span><i class="ion-ios-heart"></i></span>
+                                        </a>
+                                    </div>
+                                </div>
+
+    					</div>
+    				</div>
+    			</div>
+                {%endfor%}
+
+    		</div>
+    		<div class="row mt-5">
+          <div class="col text-center">
+            <div class="block-27">
+              <ul>
+                <li><a href="#">&lt;</a></li>
+                <li class="active"><span>1</span></li>
+                <li><a href="#">&gt;</a></li>
+              </ul>
+            </div>
+          </div>
+        </div>
+    	</div>
+    </section>
+{% endblock %}
