@@ -1,6 +1,9 @@
-# Shop Demo
-#hi
-#
+# Django
+- website 
+**Demo project**:
+- 
+                       hi.Have a Good Day ❤❤
+---
 **Contact me**
 * Contact:  [Click](https://github.com/callmeduc)
 ---
@@ -24,4 +27,11 @@
   - Framework: Django
   - Hệ quản trị cơ sở dữ liệu: SQlite
 
+---
+**Contact**
+* Contact me:  [Click](https://github.com/callmeduc)
+
+- hi [@callmeduc](https://github.com/callmeduc)
+
+                             ---  hi.Have a Good Day ❤❤  ---
 
