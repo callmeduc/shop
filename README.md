@@ -1,7 +1,6 @@
 # Shop Demo
 #hi
 #
-
 **Contact me**
 * Contact:  [Click](https://github.com/callmeduc)
 ---
