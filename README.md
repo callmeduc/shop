@@ -1,5 +1,4 @@
 # Django
-- website 
 **Demo project**:
 - 
                        hi.Have a Good Day ❤❤
