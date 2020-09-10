@@ -1,6 +1,5 @@
 # Django
 **Demo project**:
-Xây dựng website bán hàng bằng Python (framwork Django)
 - 
                        hi.Have a Good Day ❤❤
 ---
